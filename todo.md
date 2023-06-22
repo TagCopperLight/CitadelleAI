@@ -1,27 +1,27 @@
 - 4 Players Game
-- 3 Résaux :
-    - Choisir le personnage
-    - Choisir entre Argent / Quartiers
-    - Construire / Pouvoir
+- 3 Networks :
+    - Choose Character
+    - Choose between Money / District
+    - Build District / Use Character
 
 
-Argent (4)                       -     - Personage à prendre (6)
-Main (?)                         -
-Quartiers posés par joueurs (32) -
-Personnage Dispos (6)            -
-Personnage Indispos (2)          -
+Players Money (4)          -     - Chosen Character (6)
+Players Hands (?)          -
+Districts built (32)       -
+Available Characters (6)   -
+Unavailable Characters (2) -
 
 
-Argent (4)                       -     - Argent / Quartier (2)
-Main (?)                         -
-Quartiers posés par joueurs (32) -
-Role (1)                         -
+Players Money (4)    -     - Money / District (2)
+Players Hands (?)    -
+Districts built (32) -
+Player Role (1)      -
 
 
-Argent (4)                       -     - Joueur à pouvoir (4)
-Main (?)                         -     - Quartier à contruire (?)
-Quartiers posés par joueurs (32) -
-Role (1)                         -
+Players Money (4)    -     - Player to use Character on (4)
+Players Hands (?)    -     - District to build (?)
+Districts built (32) -
+Player Role (1)      -
 
 
 # TODO:
