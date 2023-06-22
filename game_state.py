@@ -1,15 +1,14 @@
-from player import Player
 from district import District
+from role import Role
 
 
 class GameState:
-    def __init__(self, players: int) -> None:
+    def __init__(self) -> None:
         self.bank = 30
         self.districts: list[District]
+        self.roles: list[Role]
 
-        self.players = [Player() for _ in range(players)]
-
-    def init(self):
-        for player in self.players:
-            player.money += 2
-            self.bank -= 2
+        self.current_player_id: int
+    
+    def is_over(self) -> bool:
+        return False
