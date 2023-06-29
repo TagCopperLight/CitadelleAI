@@ -8,7 +8,7 @@ class Player:
         self.id = id
 
         self.money = 0
-        self.role: Role = Role("", 0)
+        self.role: Role = Role(0, "None")
 
         self.hand: list[District] = []
         self.citadel: list[District] = []

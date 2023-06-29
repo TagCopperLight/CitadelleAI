@@ -1,27 +1,30 @@
-- 4 Players Game
+- 5 Players Game
 - 3 Networks :
     - Choose Character
     - Choose between Money / District
     - Build District / Use Character
 
 
-Players Money (4)          -     - Chosen Character (6)
-Players Hands (?)          -
-Districts built (32)       -
-Available Characters (6)   -
-Unavailable Characters (2) -
+Players Money (5)            -     - Chosen Character (8)
+Player Hand (76)             -
+Players Hands Size (5)       -
+Districts built (380)        -
+Available Characters (5)     -
+Unavailable Characters (2)   -
 
 
-Players Money (4)    -     - Money / District (2)
-Players Hands (?)    -
-Districts built (32) -
-Player Role (1)      -
+Players Money (5)            -     - Money / District (2)
+Player Hand (76)             -
+Players Hands Size (5)       -
+Districts built (380)        -
+Player Role (1)              -
 
 
-Players Money (4)    -     - Player to use Character on (4)
-Players Hands (?)    -     - District to build (?)
-Districts built (32) -
-Player Role (1)      -
+Players Money (5)            -     - Player to use Character on (5)
+Player Hand (76)             -     - District to build (76)
+Players Hands Size (5)       -
+Districts built (380)        -
+Player Role (1)              -
 
 
 # TODO:
