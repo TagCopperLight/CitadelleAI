@@ -92,7 +92,7 @@ class Game:
 
             if player.id == self.first_to_finish:
                 score += 4
-            if len(player.citadel) >= 7:
+            elif len(player.citadel) >= 7:
                 score += 2
             
             colors = [False, False, False, False]

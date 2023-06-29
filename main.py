@@ -15,10 +15,14 @@ def play_game() -> int:
     turn = 0
 
     while True:
+        print(game, "\n")
         game.select_characters()
+        print(game, "\n")
         game.play()
+        print(game, "\n")
 
         if game.game_over()[0]:
+            print([score for _, score in game.calculate_scores()], "\n")
             return game.game_over()[1].id
 
         turn += 1
@@ -26,12 +30,17 @@ def play_game() -> int:
 x: list[int] = []
 bins = [x + 0.5 for x in range(-1, 5)]
 
-iterations = 100000
+ties = 0
+
+iterations = 1
 with IncrementalBar('Playing games', max = iterations) as bar:
     for i in range(iterations):
         winner = play_game()
         x.append(winner)
+        if winner == -1:
+            ties += 1
         bar.next()
 
 plt.hist(x, bins = bins, edgecolor = 'black', histtype = 'bar') #type: ignore
+print(f"Ties: {ties}")
 plt.show() #type: ignore
