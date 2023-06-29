@@ -11,4 +11,4 @@ class GameState:
         self.current_player_id = 0
     
     def __repr__(self) -> str:
-        return f"GameState(bank={self.bank}, districts={self.districts}, roles={self.roles}, current_player_id={self.current_player_id})"
+        return f"GameState(bank={self.bank}, districts={len(self.districts)}, roles={self.roles}, crown={self.current_player_id})"

@@ -6,24 +6,24 @@
 
 
 Players Money (5)            -     - Chosen Character (8)
-Player Hand (76)             -
+Player Hand (54)             -
 Players Hands Size (5)       -
-Districts built (380)        -
+Districts built (270)        -
 Available Characters (5)     -
 Unavailable Characters (2)   -
 
 
 Players Money (5)            -     - Money / District (2)
-Player Hand (76)             -
+Player Hand (54)             -
 Players Hands Size (5)       -
-Districts built (380)        -
+Districts built (270)        -
 Player Role (1)              -
 
 
 Players Money (5)            -     - Player to use Character on (5)
-Player Hand (76)             -     - District to build (76)
+Player Hand (54)             -     - District to build (54)
 Players Hands Size (5)       -
-Districts built (380)        -
+Districts built (270)        -
 Player Role (1)              -
 
 

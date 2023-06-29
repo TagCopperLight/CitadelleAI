@@ -7,4 +7,5 @@ class District:
     
     def __repr__(self) -> str:
         # return f"District(id={self.id}, name={self.name}, cost={self.cost}, color={self.color})"
-        return ""
+        return f"{self.name}"
+        # return ""

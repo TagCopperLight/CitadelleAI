@@ -26,4 +26,4 @@ class Player:
         pass
 
     def __repr__(self) -> str:
-        return f"Player(id={self.id}, money={self.money}, role={self.role}, hand={self.hand}, citadel={self.citadel})"
+        return f"Player(id={self.id}, money={self.money}, role={self.role}, hand={len(self.hand)}, citadel={len(self.citadel)})"

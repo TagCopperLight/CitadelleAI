@@ -5,4 +5,5 @@ class Role:
 
     def __repr__(self) -> str:
         # return f"Role(name={self.name}, order={self.order})"
-        return ""
+        return f"{self.name}"
+        # return ""
