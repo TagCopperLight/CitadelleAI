@@ -3,7 +3,7 @@ from data import ROLES, DISTRICTS
 from player import Player
 
 from matplotlib import pyplot as plt
-from progress.bar import IncrementalBar
+from progress.bar import IncrementalBar #type: ignore
 
 
 def play_game() -> int:
