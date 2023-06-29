@@ -1,7 +1,10 @@
 from game import Game
 from data import ROLES, DISTRICTS
+from player import Player
 
-game = Game(4, ROLES, DISTRICTS)
+players = [Player(0), Player(1), Player(2), Player(3)]
+
+game = Game(players, ROLES, DISTRICTS)
 print(game)
 game.init()
 print(game)
