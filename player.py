@@ -25,7 +25,7 @@ class Player:
         pass
 
     def action(self, game_state: GameState) -> tuple[District, Role]:
-        buildable_districts = [district for district in self.hand if district.cost <= self.money]
+        buildable_districts = [district for district in self.hand if district.cost <= self.money] + [District(0, "None", 0, 0)]*5
         if buildable_districts:
             to_build = choice(buildable_districts)
         else:
