@@ -26,7 +26,7 @@ def play_game() -> int:
 x: list[int] = []
 bins = [x + 0.5 for x in range(-1, 5)]
 
-iterations = 10000
+iterations = 100000
 with IncrementalBar('Playing games', max = iterations) as bar:
     for i in range(iterations):
         winner = play_game()

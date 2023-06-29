@@ -11,6 +11,8 @@ class Game:
         self.game_state = GameState(districts, roles)
         self.players = players
 
+        self.first_to_finish = -1
+
         self.roles = roles
 
     def init(self) -> None:
@@ -69,6 +71,8 @@ class Game:
 
                 player.hand.remove(to_build)
                 player.citadel.append(to_build)
+                if len(player.citadel) >= 7:
+                    self.first_to_finish = player.id
 
             # TODO: Role effects
 
@@ -78,9 +82,35 @@ class Game:
             player.money += 0
             self.game_state.bank -= 0
 
-    def game_over(self) -> tuple[bool, Player, int]:
+    def calculate_scores(self) -> list[tuple[Player, int]]:
+        scores: list[tuple[Player, int]] = []
+
+        for player in self.players:
+            score = 0
+            for district in player.citadel:
+                score += district.cost
+
+            if player.id == self.first_to_finish:
+                score += 4
+            if len(player.citadel) >= 7:
+                score += 2
+            
+            colors = [False, False, False, False]
+            for district in player.citadel:
+                colors[district.color - 1] = True
+            
+            if all(colors):
+                score += 3
+
+            scores.append((player, score))
+        return scores
+
+    def game_over(self) -> tuple[bool, Player]:
         ended = any([len(player.citadel) >= 7 for player in self.players])
-        return ended, [player for player in self.players if len(player.citadel) >= 7][-1] if ended else Player(-1)
+        scores = [score for _, score in self.calculate_scores()]
+        if any(scores.count(x) > 1 for x in scores):
+            return ended, Player(-1)
+        return ended, max(self.calculate_scores(), key=lambda score: score[1])[0]
     
     def __repr__(self) -> str:
         return f"Game(game_state={self.game_state}, players={self.players})"
