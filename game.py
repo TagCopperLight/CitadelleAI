@@ -41,7 +41,7 @@ class Game:
         for player in self.players:
             available_characters = roles
             player.role = player.select_character(self.game_state, available_characters, unavailable_characters)
-            print(f"Player {player.id} selects {player.role}", "\n")
+            # print(f"Player {player.id} selects {player.role}", "\n")
             roles.remove(player.role)
 
     def play(self) -> None:
@@ -51,19 +51,19 @@ class Game:
 
         for player in players:
             if player.choose_money_district(self.game_state):
-                print(f"Player {player.id} ({player.role}) takes 2 gold", "\n")
+                # print(f"Player {player.id} ({player.role}) takes 2 gold", "\n")
                 player.money += 2
                 self.game_state.bank -= 2
             else:
-                print(f"Player {player.id} ({player.role}) takes 1 card", "\n")
-                player.hand.append(self.game_state.districts.pop())
+                # print(f"Player {player.id} ({player.role}) takes 1 card", "\n")
+                if self.game_state.districts:
+                    player.hand.append(self.game_state.districts.pop())
 
-            player.build_district(self.game_state)
             to_build, _ = player.action(self.game_state)
 
             # TODO: Validate the build 
             if to_build.id != 0:
-                print(f"Player {player.id} ({player.role}) builds {to_build}", "\n")
+                # print(f"Player {player.id} ({player.role}) builds {to_build}", "\n")
                 self.game_state.bank += to_build.cost
                 player.money -= to_build.cost
 
@@ -78,8 +78,9 @@ class Game:
             player.money += 0
             self.game_state.bank -= 0
 
-    def game_over(self) -> bool:
-        return any([len(player.citadel) >= 7 for player in self.players])
+    def game_over(self) -> tuple[bool, Player, int]:
+        ended = any([len(player.citadel) >= 7 for player in self.players])
+        return ended, [player for player in self.players if len(player.citadel) >= 7][-1] if ended else Player(-1)
     
     def __repr__(self) -> str:
         return f"Game(game_state={self.game_state}, players={self.players})"

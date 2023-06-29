@@ -21,9 +21,6 @@ class Player:
     def choose_money_district(self, game_state: GameState) -> bool:
         return choice([True, False])
 
-    def build_district(self, game_state: GameState) -> None:
-        pass
-
     def action(self, game_state: GameState) -> tuple[District, Role]:
         buildable_districts = [district for district in self.hand if district.cost <= self.money] + [District(0, "None", 0, 0)]*5
         if buildable_districts:
@@ -34,4 +31,4 @@ class Player:
         return to_build, choice([role for role in game_state.roles if role.order != self.role.order])
 
     def __repr__(self) -> str:
-        return f"Player(id={self.id}, money={self.money}, role={self.role}, hand={self.hand}, citadel={self.citadel})"
+        return f"Player(id={self.id}, money={self.money}, role={self.role}, hand={len(self.hand)}, citadel={self.citadel})"

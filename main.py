@@ -2,13 +2,36 @@ from game import Game
 from data import ROLES, DISTRICTS
 from player import Player
 
-players = [Player(0), Player(1), Player(2), Player(3), Player(4)]
+from matplotlib import pyplot as plt
+from progress.bar import IncrementalBar
 
-game = Game(players, ROLES, DISTRICTS)
-print(game, "\n")
-game.init()
-print(game, "\n")
-game.select_characters()
-print(game, "\n")
-game.play()
-print(game, "\n")
+
+def play_game() -> int:
+    players = [Player(0), Player(1), Player(2), Player(3), Player(4)]
+
+    game = Game(players, ROLES, DISTRICTS)
+    game.init()
+
+    turn = 0
+
+    while True:
+        game.select_characters()
+        game.play()
+
+        if game.game_over()[0]:
+            return game.game_over()[1].id
+
+        turn += 1
+
+x: list[int] = []
+bins = [x + 0.5 for x in range(-1, 5)]
+
+iterations = 10000
+with IncrementalBar('Playing games', max = iterations) as bar:
+    for i in range(iterations):
+        winner = play_game()
+        x.append(winner)
+        bar.next()
+
+plt.hist(x, bins = bins, edgecolor = 'black', histtype = 'bar') #type: ignore
+plt.show() #type: ignore
