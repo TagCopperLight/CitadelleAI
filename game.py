@@ -21,7 +21,7 @@ class Game:
             self.game_state.bank -= 2
 
             player.hand = self.game_state.districts[:4]
-            self.districts = self.game_state.districts[4:]
+            self.game_state.districts = self.game_state.districts[4:]
 
     def players_sort(self) -> None:
         players = [player for player in self.players if player.id == self.game_state.current_player_id]
@@ -49,15 +49,22 @@ class Game:
         self.calculate_incomes()
 
         for player in players:
-            print(player)
             if player.choose_money_district(self.game_state):
                 player.money += 2
                 self.game_state.bank -= 2
             else:
-                player.hand.append(self.districts.pop())
+                player.hand.append(self.game_state.districts.pop())
 
             player.build_district(self.game_state)
-            player.action(self.game_state)
+            to_build, _ = player.action(self.game_state)
+
+            self.game_state.bank += to_build.cost
+            player.money -= to_build.cost
+
+            player.hand.remove(to_build)
+            player.citadel.append(to_build)
+
+            # TODO: Role effects
 
     def calculate_incomes(self) -> None:
         # TODO: District and role effects
