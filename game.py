@@ -19,8 +19,7 @@ class Game:
         shuffle(self.game_state.districts)
 
         for player in self.players:
-            player.money += 2
-            self.game_state.bank -= 2
+            player.money += self.game_state.bank.withdraw(2)
 
             player.hand = self.game_state.districts[:4]
             self.game_state.districts = self.game_state.districts[4:]
@@ -54,8 +53,7 @@ class Game:
         for player in players:
             if player.choose_money_district(self.game_state):
                 # print(f"Player {player.id} ({player.role}) takes 2 gold", "\n")
-                player.money += 2
-                self.game_state.bank -= 2
+                player.money += self.game_state.bank.withdraw(2)
             else:
                 # print(f"Player {player.id} ({player.role}) takes 1 card", "\n")
                 if self.game_state.districts:
@@ -66,8 +64,7 @@ class Game:
             # TODO: Validate the build 
             if to_build.id != 0:
                 # print(f"Player {player.id} ({player.role}) builds {to_build}", "\n")
-                self.game_state.bank += to_build.cost
-                player.money -= to_build.cost
+                player.money -= self.game_state.bank.deposit(to_build.cost)
 
                 player.hand.remove(to_build)
                 player.citadel.append(to_build)
@@ -75,12 +72,11 @@ class Game:
                     self.first_to_finish = player.id
 
             # TODO: Role effects
-
+        
     def calculate_incomes(self) -> None:
         # TODO: District and role effects
         for player in self.players:
-            player.money += 0
-            self.game_state.bank -= 0
+            player.money += self.game_state.bank.withdraw(0)
 
     def calculate_scores(self) -> list[tuple[Player, int]]:
         scores: list[tuple[Player, int]] = []
