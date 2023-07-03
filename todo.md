@@ -27,11 +27,6 @@ Districts built (270)        -
 Player Role (1)              -
 
 
-# TODO:
-- Game State
-- Income Calculator
-- Points Calculator
-
 # Game Cycle:
 - Initialize
 - Loop:
