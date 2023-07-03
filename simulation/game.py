@@ -32,6 +32,8 @@ class Game:
         for id in list(range(self.game_state.current_player_id + 1, len(self.players))) + list(range(0, self.game_state.current_player_id)):
             players += [player for player in self.players if player.id == id]
 
+        self.players = players
+
     def select_characters(self) -> None:
         #TODO: Enlever un role de plus et le rajouter à la fin
         roles = self.game_state.roles.copy()
