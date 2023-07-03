@@ -1,6 +1,6 @@
-from district import District
-from role import Role
-from bank import Bank
+from simulation.district import District
+from simulation.role import Role
+from simulation.bank import Bank
 
 
 class GameState:

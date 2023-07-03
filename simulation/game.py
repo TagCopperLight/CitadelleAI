@@ -1,7 +1,7 @@
-from game_state import GameState
-from player.player import Player
-from role import Role
-from district import District
+from simulation.game_state import GameState
+from simulation.player.player import Player
+from simulation.role import Role
+from simulation.district import District
 
 from random import shuffle
 

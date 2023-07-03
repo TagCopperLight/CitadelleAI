@@ -1,8 +1,8 @@
-from player import Player
+from simulation.player.player import Player
 
-from game_state import GameState
-from role import Role
-from district import District
+from simulation.game_state import GameState
+from simulation.role import Role
+from simulation.district import District
 
 from random import choice
 

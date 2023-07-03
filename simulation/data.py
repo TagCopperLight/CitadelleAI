@@ -1,5 +1,5 @@
-from role import Role
-from district import District
+from simulation.role import Role
+from simulation.district import District
 
 
 ROLES = [
