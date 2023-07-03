@@ -1,7 +1,7 @@
-from game import Game
-from data import ROLES, DISTRICTS
-from player import Player
-from basic_player import BasicPlayer #type: ignore
+from simulation.game import Game
+from simulation.data import ROLES, DISTRICTS
+from simulation.player.player import Player
+from simulation.player.basic_player import BasicPlayer #type: ignore
 
 import time
 from matplotlib import pyplot as plt
@@ -10,9 +10,6 @@ from tqdm import tqdm
 
 from multiprocessing import Pool, current_process
 
-
-DEBUG = False
-BAR = True
 
 def debug(*args: str|int|Game) -> None:
     if DEBUG:
@@ -105,7 +102,12 @@ def main(iterations:int, processes:int) -> None:
         score_list += result[1]
         turn_list += result[2]
 
-    graph(winner_list, score_list, turn_list, True)
+    graph(winner_list, score_list, turn_list, GRAPHS)
+
+
+DEBUG = False
+BAR = True
+GRAPHS = False
 
 start_time = time.time()
-main(1000000, 6)
+main(100000, 6)

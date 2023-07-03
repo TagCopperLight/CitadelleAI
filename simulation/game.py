@@ -1,5 +1,5 @@
 from game_state import GameState
-from player import Player
+from player.player import Player
 from role import Role
 from district import District
 
