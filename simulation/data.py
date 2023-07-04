@@ -89,7 +89,7 @@ DISTRICTS = [
     # District(67, "Bibliotheque", 6, 16)
 ]
 
-ODISTRICTS = [
+ODISTRICTS: list[tuple[int, int]] = [
     (1, 2),
     (1, 2),
     (1, 2),

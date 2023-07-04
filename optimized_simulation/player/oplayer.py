@@ -24,3 +24,6 @@ class OPlayer:
             to_build = -1
 
         return to_build, choice([role for role in range(8) if ob.get_role(data, self.id) != role])
+    
+    def __repr__(self) -> str:
+        return f"OPlayer({self.id})"
