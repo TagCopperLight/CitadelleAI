@@ -70,12 +70,12 @@ class OGame:
             match role:
                 case 0:
                     # Assassin
-                    focused_role = self.players[player].action(*self.game_data)[1]
+                    focused_role = self.players[player].action(*self.game_data, self.odistricts)[1]
                     roles.remove(focused_role)
 
                 case 1:
                     # Thief
-                    focused_role = self.players[player].action(*self.game_data)[1]
+                    focused_role = self.players[player].action(*self.game_data, self.odistricts)[1]
                     focused_player = [player for player in range(5) if ob.get_role(self.data, player) == focused_role]
                     if not focused_player: continue
                     focused_player = focused_player[0]
@@ -88,7 +88,7 @@ class OGame:
 
                 case 2:
                     # Magician
-                    focused_role = self.players[player].action(*self.game_data)[1]
+                    focused_role = self.players[player].action(*self.game_data, self.odistricts)[1]
                     focused_player = [player for player in range(5) if ob.get_role(self.data, player) == focused_role]
                     if not focused_player: continue
                     focused_player = focused_player[0]
@@ -123,7 +123,7 @@ class OGame:
                     # Condottiere
                     self.calculate_incomes(player, 4)
 
-                    focused_role = self.players[player].action(*self.game_data)[1]
+                    focused_role = self.players[player].action(*self.game_data, self.odistricts)[1]
                     focused_player = [player for player in range(5) if ob.get_role(self.data, player) == focused_role]
                     if not focused_player: continue
                     focused_player = focused_player[0]
@@ -167,7 +167,7 @@ class OGame:
                     district = self.districts.pop(0)
                     ob.set_district(self.hands[player], district, 1)
 
-            to_build = self.players[player].action(*self.game_data)[0]
+            to_build = self.players[player].action(*self.game_data, self.odistricts)[0]
 
             if to_build != -1:
                 player_money = ob.get_money(self.data, player)
