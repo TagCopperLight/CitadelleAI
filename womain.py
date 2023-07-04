@@ -1,19 +1,16 @@
-from optimized_simulation.ogame import OGame
+from wrong_optimized_simulation.wogame import WOGame
 from simulation.data import ODISTRICTS
-from optimized_simulation.player.oplayer import OPlayer
+from wrong_optimized_simulation.player.woplayer import WOPlayer
 
 import time
 from matplotlib import pyplot as plt
 import numpy as np
 from tqdm import tqdm
 
-import cProfile
-import pstats
-
 from multiprocessing import Pool, current_process
 
 
-def debug(*args: str|int|OGame) -> None:
+def debug(*args: str|int|WOGame) -> None:
     if DEBUG:
         print(*args)
 
@@ -36,9 +33,9 @@ def graph(winner_list : list[int], score_list: list[int], turn_list: list[int], 
 
 
 def play_game() -> tuple[int, list[tuple[int, int]], int]:
-    players: list[OPlayer] = [OPlayer(0)] + [OPlayer(i) for i in range(1, 5)]
+    players: list[WOPlayer] = [WOPlayer(0)] + [WOPlayer(i) for i in range(1, 5)]
 
-    game = OGame(players, ODISTRICTS, DEBUG)
+    game = WOGame(players, ODISTRICTS, DEBUG)
     game.init()
     debug(game, "\n")
 

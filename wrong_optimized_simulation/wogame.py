@@ -1,15 +1,15 @@
 from random import shuffle
 
-from optimized_simulation.player.oplayer import OPlayer
-from optimized_simulation.obank import withdraw, deposit
-import optimized_simulation.obinary as ob
+from wrong_optimized_simulation.player.woplayer import WOPlayer
+from wrong_optimized_simulation.wobank import withdraw, deposit
+import wrong_optimized_simulation.wobinary as ob
 
 ROLES = ["Assassin", "Voleur", "Magicien", "Roi", "Eveque", "Marchand", "Architecte", "Condottiere"]
 
 
 # Forced to a 5 player game
-class OGame:
-    def __init__(self, players: list[OPlayer], odisctricts: list[tuple[int, int]], debug: bool = False) -> None:
+class WOGame:
+    def __init__(self, players: list[WOPlayer], odisctricts: list[tuple[int, int]], debug: bool = False) -> None:
         self.players = players
         self.odistricts = odisctricts
 

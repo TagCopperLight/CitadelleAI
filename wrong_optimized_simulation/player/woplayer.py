@@ -1,8 +1,8 @@
 from random import choice
-import optimized_simulation.obinary as ob
+import wrong_optimized_simulation.wobinary as ob
 
 
-class OPlayer:
+class WOPlayer:
     def __init__(self, id: int) -> None:
         self.id = id
 
