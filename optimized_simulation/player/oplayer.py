@@ -16,6 +16,8 @@ class OPlayer:
         for district in hands[self.id]:
             if odistricts[district][0] <= moneys[self.id]:
                 buildable_districts.append(district)
+        
+        buildable_districts.append(-1) # To make the game longer
 
         if buildable_districts:
             to_build = choice(buildable_districts)
