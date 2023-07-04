@@ -61,10 +61,9 @@ def process(iterations: int) -> tuple[list[int], list[int], list[int]]:
     score_list: list[int] = []
     turn_list: list[int] = []
 
-    # process_id = current_process()._identity[0]
+    process_id = current_process()._identity[0]
 
-    # if BAR and process_id == 1:
-    if BAR:
+    if BAR and process_id == 1:
         for _ in tqdm(range(iterations)):
             winner, scores, turns = play_game()
 
@@ -109,10 +108,7 @@ def main(iterations:int, processes:int) -> None:
 
 DEBUG = False
 BAR = True
-GRAPHS = False
+GRAPHS = True
 
 start_time = time.time()
-# main(100000, 6)
-cProfile.run('process(10000)', 'restats')
-p = pstats.Stats('restats')
-p.sort_stats('cumulative').print_stats(20)
+main(100000, 6)
