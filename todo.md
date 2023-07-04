@@ -37,7 +37,24 @@ Player Role (1)              -
         - Constuire Pouvoir
 - Calculate points
 
+
+# Optimizations:
+
+
 Money: 0-30 number (31 numbers) -> 5 bits (32) * 5 : 25 bits
-Hands: 54 builds -> 54 bits * 5 : 270 bits
-Citadels: 54 builds -> 54 bits * 5 : 270 bits
 Role: 8 roles -> 3 bits * 5 : 15 bits
+Head(24)-Money(25)-Role(15)=64 bits
+
+Hands: 54 builds -> 54 bits * 5 : 270 bits
+Player 0: Head(10)-Hands(54)=64 bits
+Player 1: Head(10)-Hands(54)=64 bits
+Player 2: Head(10)-Hands(54)=64 bits
+Player 3: Head(10)-Hands(54)=64 bits
+Player 4: Head(10)-Hands(54)=64 bits
+
+Citadels: 54 builds -> 54 bits * 5 : 270 bits
+Player 0: Head(10)-Citadels(54)=64 bits
+Player 1: Head(10)-Citadels(54)=64 bits
+Player 2: Head(10)-Citadels(54)=64 bits
+Player 3: Head(10)-Citadels(54)=64 bits
+Player 4: Head(10)-Citadels(54)=64 bits

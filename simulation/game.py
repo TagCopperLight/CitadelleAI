@@ -67,6 +67,7 @@ class Game:
                     players.remove(focused_player[0])
 
             elif player.role.order == 1:
+                #TODO: Steal from a role not already played
                 focused_role = player.action(self.game_state)[1]
                 focused_player = [player for player in self.players if player.role == focused_role]
                 self.debug(f"Player {player.id} ({player.role}) tried to steal from {focused_role}")
