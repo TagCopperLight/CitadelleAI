@@ -130,8 +130,4 @@ BAR = True
 GRAPHS = True
 
 start_time = time.time()
-print("Normal")
-main(100000, 6, False)
-start_time = time.time()
-print("Optimized")
 main(100000, 6, True)
