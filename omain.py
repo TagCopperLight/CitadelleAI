@@ -1,6 +1,7 @@
 from optimized_simulation.ogame import OGame
 from simulation.data import ODISTRICTS
 from optimized_simulation.player.oplayer import OPlayer
+from optimized_simulation.player.obasicplayer import OBasicPlayer
 
 import time
 from matplotlib import pyplot as plt
@@ -20,6 +21,7 @@ def graph(winner_list : list[int], score_list: list[int], turn_list: list[int], 
     print(f"Games/second: {total_games / (time.time() - start_time)}")
     turn_array = np.array(turn_list)
     print(f"Average turns: {np.mean(turn_array)}")
+    print(f"Player 0 winrate: {winner_list.count(0) / (total_games - winner_list.count(-1)) * 100}%")
 
     bins = [i + 0.5 for i in range(-1, 5)]
     plt.hist(winner_list, bins = bins, edgecolor = 'black', histtype = 'bar') #type: ignore
@@ -33,7 +35,7 @@ def graph(winner_list : list[int], score_list: list[int], turn_list: list[int], 
 
 
 def play_game() -> tuple[int, list[tuple[int, int]], int]:
-    players: list[OPlayer] = [OPlayer(0)] + [OPlayer(i) for i in range(1, 5)]
+    players: list[OPlayer] = [OBasicPlayer(0)] + [OPlayer(i) for i in range(1, 5)]
 
     game = OGame(players, ODISTRICTS, DEBUG)
     game.init()
