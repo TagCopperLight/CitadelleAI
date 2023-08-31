@@ -1,4 +1,4 @@
-from random import shuffle
+from random import shuffle, randint
 
 from optimized_simulation.player.oplayer import OPlayer
 from optimized_simulation.obank import withdraw, deposit
@@ -20,7 +20,7 @@ class OGame:
 
         self.districts = list(range(54))
         self.bank = 30 - (5 * 2)
-        self.crown = 0
+        self.crown = randint(0, 4)
 
         self.moneys = [2 for _ in range(5)]
         self.roles = [-1 for _ in range(5)]
@@ -52,6 +52,12 @@ class OGame:
         roles = list(range(8))
         shuffle(roles)
         unavailable_characters = [roles.pop(), roles.pop()]
+        if 3 in unavailable_characters:
+            unavailable_characters.append(roles.pop())
+            unavailable_characters.remove(3)
+            roles.append(3)
+        
+        shuffle(roles)
 
         order = self.get_select_order()
 
@@ -151,7 +157,7 @@ class OGame:
                 
             # ----------- Actions ------------
 
-            if role == 6:
+            if role == 6: # Architect
                 ammount_to_withdraw, ammount_to_pick = 4, 2
             else:
                 ammount_to_withdraw, ammount_to_pick = 2, 1
