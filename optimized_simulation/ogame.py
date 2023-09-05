@@ -6,9 +6,9 @@ from optimized_simulation.obank import withdraw, deposit
 
 ROLES = ["Assassin", "Voleur", "Magicien", "Roi", "Eveque", "Marchand", "Architecte", "Condottiere"]
 
-def cindex(list : list[int], index: int) -> int|None:
+def cindex(l : list[int], index: int) -> int|None:
     try:
-        return list.index(index)
+        return l.index(index)
     except ValueError:
         return None
 

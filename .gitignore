@@ -132,3 +132,4 @@ dmypy.json
 make-files
 output
 tmp
+.c_simulation/
