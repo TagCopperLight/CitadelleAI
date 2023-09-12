@@ -110,4 +110,4 @@ BAR = True
 GRAPHS = True
 
 start_time = time.time()
-main(10000, 6)
+main(1000000, 6)
